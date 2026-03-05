@@ -1,6 +1,8 @@
 <#
 .SYNOPSIS
-    This PowerShell script enables and verifies auditing for Process Creation success events on Windows 11 
+    This PowerShell script configures the system to comply with STIG control WN11-AU-000050 for Windows 11. 
+    The script uses the built-in auditpol utility to enable Success auditing for the Process Creation 
+    subcategory within Advanced Audit Policy (Detailed Tracking).
 
 .NOTES
     Author          : Antonis Vosmandros
