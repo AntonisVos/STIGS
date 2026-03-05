@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    This PowerShell script ensures .
+    This PowerShell script enables and verifies auditing for Process Creation success events on Windows 11 
 
 .NOTES
     Author          : Antonis Vosmandros
@@ -14,15 +14,23 @@
     STIG-ID         : WN11-AU-000050
 
 .TESTED ON
-    Date(s) Tested  : 
-    Tested By       : 
-    Systems Tested  : 
+    Date(s) Tested  : 2026-03-05
+    Tested By       : Antonis Vosmandros
+    Systems Tested  : Windows 11
     PowerShell Ver. : 
 
 .USAGE
-    Put any usage instructions here.
-    Example syntax:
-    PS C:\> .\__remediation_template(STIG-ID-WN10-AU-000500).ps1 
+
 #>
 
-# YOUR CODE GOES HERE
+# Enable auditing for Process Creation success events
+
+Write-Host "Configuring Audit Policy for Process Creation..."
+
+auditpol /set /subcategory:"Process Creation" /success:enable
+
+Write-Host "Audit policy configured."
+
+# Verify configuration
+Write-Host "Verifying configuration..."
+auditpol /get /subcategory:"Process Creation"
