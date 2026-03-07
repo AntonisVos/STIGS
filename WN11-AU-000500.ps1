@@ -1,9 +1,9 @@
 <#
 .SYNOPSIS
-    This PowerShell script configures the system to comply with STIG control WN11-AU-000050 for Windows 11. 
-    It enables Advanced Audit Policy to audit successful process creation events.
-    It overrides legacy audit settings to ensure the new policy is enforced.
-    Finally, it verifies that Process Creation auditing is active and reports pass or fail.
+Remediates STIG control WN11-AU-000050 by enabling auditing for Process Creation (Success) on Windows 11. 
+It first enforces advanced audit policies to override legacy audit settings, then configures the system 
+to log successful process creation events. The script forces a Group Policy update to apply the changes 
+immediately and verifies the setting using auditpol.exe.
 
 .NOTES
     Author          : Antonis Vosmandros
@@ -26,23 +26,27 @@
 
 #>
 
- # STIG Remediation Script
+# STIG Remediation Script
 # Control: WN11-AU-000050
 # Requirement: Audit Process Creation (Success)
 
 Write-Host "Starting remediation for WN11-AU-000050..."
 
 # Ensure advanced audit policy overrides legacy audit policy
-Write-Host "Enforcing Advanced Audit Policy..."
+Write-Host "Enforcing Advanced Audit Policy override..."
 Set-ItemProperty `
- -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa" `
- -Name "SCENoApplyLegacyAuditPolicy" `
- -Value 1 `
- -Type DWord
+    -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Lsa" `
+    -Name "SCENoApplyLegacyAuditPolicy" `
+    -Value 1 `
+    -Type DWord
+
+# Force Group Policy update to apply the override
+Write-Host "Applying Group Policy..."
+gpupdate /force | Out-Null
 
 # Enable auditing for Process Creation (Success)
 Write-Host "Configuring Process Creation auditing..."
-auditpol /set /subcategory:"Process Creation" /success:enable
+auditpol /set /subcategory:"Process Creation" /success:enable /failure:disable
 
 # Verify configuration
 Write-Host "Verifying configuration..."
@@ -58,20 +62,6 @@ else {
 }
 
 Write-Host "Remediation complete."
-Starting remediation for WN11-AU-000050...
-Enforcing Advanced Audit Policy...
-Configuring Process Creation auditing...
-The command was successfully executed.
-
-Verifying configuration...
-System audit policy  Category/Subcategory                      Setting Detailed Tracking
-   Process Creation                        Success 
-PASS: Process Creation auditing is enabled.
-Remediation complete.
-
-PS C:\Users\antonislab> auditpol /get /subcategory:"Process Creation"
-System audit policy
-
 Category/Subcategory                      Setting
 Detailed Tracking
   Process Creation          
