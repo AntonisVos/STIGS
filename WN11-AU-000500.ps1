@@ -61,7 +61,4 @@ else {
     Write-Host "FAIL: Process Creation auditing is not configured correctly."
 }
 
-Write-Host "Remediation complete."
-Category/Subcategory                      Setting
-Detailed Tracking
-  Process Creation          
+Write-Host "Remediation complete."    
