@@ -26,7 +26,7 @@ immediately and verifies the setting using auditpol.
 
 #>
 
-# STIG Remediation Script
+ # STIG Remediation Script
 # Control: WN11-AU-000050
 # Requirement: Audit Process Creation (Success)
 
@@ -61,4 +61,4 @@ else {
     Write-Host "FAIL: Process Creation auditing is not configured correctly."
 }
 
-Write-Host "Remediation complete."    
+Write-Host "Remediation complete."
