@@ -33,6 +33,7 @@ The initial scan identified a failed compliance check for WN11-AU-000050.
 
 Step 2: Manual Remediation
 
+
 The Tenable compliance report provided the following remediation guidance:
 
 Computer Configuration
@@ -53,6 +54,7 @@ Audit Process Creation: Success
 
 Step 3: Remediation Verification via Rescan
 
+
 After applying the policy configuration, the virtual machine was restarted to ensure the change took effect.
 
 A new compliance scan was then executed using Tenable Nessus.
@@ -65,6 +67,7 @@ The rescan results confirmed that WN11-AU-000050 had changed to a PASS, indicati
 
 Step 4: Undoing the Remediation
 
+
 To validate the control, the remediation was intentionally reversed.
 
 The Audit Process Creation setting was disabled, the VM was restarted, and another compliance scan was executed.
@@ -75,8 +78,8 @@ The scan results showed that WN11-AU-000050 returned to a FAILED state. This con
 <img width="1509" height="824" alt="Screenshot 2026-03-09 at 8 17 04 PM" src="https://github.com/user-attachments/assets/8d69b1b7-7062-4abe-a395-1f765796f17c" />
 
 
-
 Step 5: PowerShell Automation
+
 
 During automation testing, the configuration appeared successful when applied via PowerShell. However, the GUI policy tools still showed:
 
