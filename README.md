@@ -18,12 +18,12 @@ To ensure the internal vulnerability scanner could connect without network filte
 
 A compliance scan was then performed using Tenable Nessus with the following configuration.
 
-Scan Configuration
-Setting	Value
-Target	Windows VM Private IP
-Authentication	Windows credentialed scan
-Compliance Policy	DISA Microsoft Windows 11 STIG v2r6
-Enabled Checks	Windows Compliance Checks
+Scan Configuration 
+
+Target:           	Windows VM Private IP
+Authentication:   	Windows credentialed scan
+Compliance Policy:	DISA Microsoft Windows 11 STIG v2r6
+Enabled Checks:   	Windows Compliance Checks
 
 The initial scan identified a failed compliance check for WN11-AU-000050.
 
@@ -49,6 +49,7 @@ Audit Process Creation: Success
 
 
 <img width="784" height="585" alt="Manual Remediation in Windows" src="https://github.com/user-attachments/assets/3fbc5681-8815-41ee-8f37-470c499077ba" />
+
 
 Step 3: Remediation Verification via Rescan
 
