@@ -93,36 +93,35 @@ During automation testing, the configuration appeared successful when applied vi
 
 **- Not configured in secpol.msc**
 
+
 This behavior occurs because Windows maintains two audit policy frameworks:
+
 
 **Legacy Audit Policy**
 
 Configured under:
-
 Security Settings
  → Local Policies
  → Audit Policy
 
 This framework uses broad categories such as:
+- Audit Process Tracking
+- Advanced Audit Policy
 
-Audit Process Tracking
-Advanced Audit Policy
+**Modern security standards, including DISA STIGs, rely on Advanced Audit Policy, which provides granular subcategory auditing.**
 
-Modern security standards, including DISA STIGs, rely on Advanced Audit Policy, which provides granular subcategory auditing.
+**Configured under:**
+**Advanced Audit Policy Configuration**
+**→ System Audit Policies**
+**→ Detailed Tracking**
 
-Configured under:
+**This includes specific subcategories such as:**
 
-Advanced Audit Policy Configuration
- → System Audit Policies
- → Detailed Tracking
+**Process Creation**
 
-This includes specific subcategories such as:
+**If the system is not explicitly configured to prioritize Advanced Audit Policy, legacy audit policies can override advanced settings.**
 
-Process Creation
-
-If the system is not explicitly configured to prioritize Advanced Audit Policy, legacy audit policies can override advanced settings.
-
-Script Function
+##Script Function##
 
 The PowerShell remediation script performs the following actions:
 
