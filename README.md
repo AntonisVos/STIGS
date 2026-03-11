@@ -16,11 +16,11 @@ This ensures successful process executions are logged in the Windows Security Ev
 
 ## Step 1: Baseline Scan of VM
 
-A **Windows 11 VM** was provisioned in **Azure** for testing and remediation validation.
+Windows 11 VM was provisioned in Azure for testing and remediation validation.
 
 Windows Defender Firewall was temporarily disabled to ensure the internal vulnerability scanner could connect without network filtering issues.
 
-A compliance scan was performed using **Tenable Nessus** with the following configuration:
+A compliance scan was performed using Tenable Nessus with the following configuration:
 
 ### Scan Configuration
 
