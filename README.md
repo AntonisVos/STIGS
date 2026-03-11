@@ -11,7 +11,7 @@
 The system must be configured to audit Process Creation events under Detailed Tracking for Success. This ensures successful process executions are logged in the Windows Security Event Log and allows administrators to track executed processes for security monitoring and forensic analysis.
 
 
-### Step 1: Baseline Scan of VM**
+### Step 1: Baseline Scan of VM
 
 A Windows 11 virtual machine was provisioned in Microsoft Azure for testing and remediation validation.
 
