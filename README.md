@@ -41,7 +41,7 @@ The Tenable compliance report provided the following remediation guidance.
 
 ### Group Policy Path
 
- Computer Configuration
+ →  Computer Configuration
  
   →  Windows Settings
    
