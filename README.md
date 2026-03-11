@@ -1,12 +1,12 @@
-#DISA STIG Remediation
-##WN11-AU-000050 – Audit Process Creation (Success)
-##Control Overview
+# DISA STIG Remediation
+## WN11-AU-000050 – Audit Process Creation (Success)
+## Control Overview
 
-###STIG ID: WN11-AU-000050
-###Category: Audit
-###Severity: Medium (CAT II)
+### STIG ID: WN11-AU-000050
+### Category: Audit
+### Severity: Medium (CAT II)
 
-###Requirement
+### Requirement
 
 The system must be configured to audit Process Creation events under Detailed Tracking for Success. This ensures successful process executions are logged in the Windows Security Event Log and allows administrators to track executed processes for security monitoring and forensic analysis.
 
