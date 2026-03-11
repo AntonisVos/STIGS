@@ -42,11 +42,17 @@ The Tenable compliance report provided the following remediation guidance.
 ### Group Policy Path
 
  Computer Configuration
+ 
   → Windows Settings
+   
    → Security Settings
+   
     → Advanced Audit Policy Configuration
+    
      → System Audit Policies
+     
       → Detailed Tracking
+      
        → Audit Process Creation
 
 The policy must be configured as:
