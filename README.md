@@ -62,6 +62,7 @@ A new compliance scan was then executed using Tenable Nessus.
 The rescan results confirmed that WN11-AU-000050 had changed to a PASS, indicating the required audit policy was successfully applied.
 
 
+
 <img width="1090" height="391" alt="Scan after manual remediation - passed" src="https://github.com/user-attachments/assets/528eaed2-f92e-410f-acc5-62552933f074" />
 
 
