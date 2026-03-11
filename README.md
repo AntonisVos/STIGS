@@ -43,11 +43,11 @@ The Tenable compliance report provided the following remediation guidance.
 
  Computer Configuration
  
-  →  Windows Settings
+  → Windows Settings
    
-   →  Security Settings
+   → Security Settings
    
-    →  Advanced Audit Policy Configuration
+    → Advanced Audit Policy Configuration
     
      → System Audit Policies
      
