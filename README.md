@@ -19,7 +19,6 @@ Windows Defender Firewall was temporarily disabled to ensure internal vulnerabil
 A compliance scan was performed using Tenable Nessus with the following configuration:
 
 **Scan Configuration** 
-
 **Target:**           	Windows VM Private IP
 
 **Authentication:**   	Windows credentialed scan
