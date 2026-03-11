@@ -39,17 +39,17 @@ The initial scan identified a failed compliance check for WN11-AU-000050.
 
 The Tenable compliance report provided the following remediation guidance:
 
-Computer Configuration
- → Windows Settings
- → Security Settings
- → Advanced Audit Policy Configuration
- → System Audit Policies
- → Detailed Tracking
- → Audit Process Creation
+**Computer Configuration**
+ **→ Windows Settings**
+ **→ Security Settings**
+ **→ Advanced Audit Policy Configuration**
+ **→ System Audit Policies**
+ **→ Detailed Tracking**
+ **→ Audit Process Creation**
 
 The policy must be configured with:
 
-Audit Process Creation: Success
+Audit Process Creation: **Success**
 
 
 <img width="784" height="585" alt="Manual Remediation in Windows" src="https://github.com/user-attachments/assets/3fbc5681-8815-41ee-8f37-470c499077ba" />
@@ -62,7 +62,7 @@ After applying the policy configuration, the VM was restarted to ensure the chan
 
 A new compliance scan was then executed using Tenable Nessus.
 
-The rescan results confirmed that WN11-AU-000050 had changed to a PASS, indicating the required audit policy was successfully applied.
+The rescan results confirmed that WN11-AU-000050 had changed to a **PASS**, indicating the required audit policy was successfully applied.
 
 
 
@@ -76,7 +76,7 @@ To validate the control, the remediation was intentionally reversed.
 
 The Audit Process Creation setting was disabled, the VM was restarted, and another compliance scan was executed.
 
-The scan results showed that WN11-AU-000050 returned to a FAILED state. This confirms that the compliance check correctly detects the configuration change.
+The scan results showed that WN11-AU-000050 returned to a **FAILED** state. This confirms that the compliance check correctly detects the configuration change.
 
 
 <img width="1509" height="824" alt="Screenshot 2026-03-09 at 8 17 04 PM" src="https://github.com/user-attachments/assets/8d69b1b7-7062-4abe-a395-1f765796f17c" />
@@ -87,15 +87,15 @@ The scan results showed that WN11-AU-000050 returned to a FAILED state. This con
 
 During automation testing, the configuration appeared successful when applied via PowerShell. However, the GUI policy tools still showed:
 
-No auditing in PowerShell output
+**No auditing in PowerShell output**
 
-Not configured in gpedit.msc
+**Not configured in gpedit.msc**
 
-Not configured in secpol.msc
+**Not configured in secpol.msc**
 
 This behavior occurs because Windows maintains two audit policy frameworks.
 
-Legacy Audit Policy
+**Legacy Audit Policy**
 
 Configured under:
 
