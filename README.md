@@ -43,17 +43,17 @@ The Tenable compliance report provided the following remediation guidance.
 
  Computer Configuration
  
-  → Windows Settings
+  →  Windows Settings
    
-   → Security Settings
+   →   Security Settings
    
-    → Advanced Audit Policy Configuration
+    →    Advanced Audit Policy Configuration
     
-     → System Audit Policies
+     →     System Audit Policies
      
-      → Detailed Tracking
+      →      Detailed Tracking
       
-       → Audit Process Creation
+       →      Audit Process Creation
 
 The policy must be configured as:
 
