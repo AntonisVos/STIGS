@@ -87,13 +87,13 @@ The scan results showed that WN11-AU-000050 returned to a **FAILED** state. This
 
 During automation testing, the configuration appeared successful when applied via PowerShell. However, the GUI policy tools still showed:
 
-**No auditing in PowerShell output**
+**- No auditing in PowerShell output**
 
-**Not configured in gpedit.msc**
+**- Not configured in gpedit.msc**
 
-**Not configured in secpol.msc**
+**- Not configured in secpol.msc**
 
-This behavior occurs because Windows maintains two audit policy frameworks.
+This behavior occurs because Windows maintains two audit policy frameworks:
 
 **Legacy Audit Policy**
 
