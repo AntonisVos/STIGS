@@ -132,4 +132,29 @@ The PowerShell remediation script performs the following actions:
 
 The script outputs a **PASS/FAIL validation result**.
 
-Example verification command:
+<img width="804" height="878" alt="Powershell Remediation" src="https://github.com/user-attachments/assets/de7decf4-af30-4cf5-93f7-af3fa85e3b82" />
+
+---
+
+## Step 6: Validation with Rescan
+
+<img width="1509" height="823" alt="Screenshot 2026-03-09 at 11 51 08 AM" src="https://github.com/user-attachments/assets/65a9bbdc-1b81-4b50-99e0-f430669264f4" />
+
+After executing the PowerShell remediation script, the VM was rescanned using **Tenable Nessus**.
+
+The scan results showed that **STIG ID WN11-AU-000050 returned a PASS status**.
+
+This confirms the automated remediation successfully enforced the required audit configuration and was detected by the compliance scanner.
+
+---
+
+## Result
+
+The system is now compliant with **WN11-AU-000050**, and the remediation has been validated through:
+
+- Baseline vulnerability scanning
+- Manual remediation
+- Compliance verification scans
+- PowerShell-based automated enforcement
+
+**Compliance Status: PASS**
