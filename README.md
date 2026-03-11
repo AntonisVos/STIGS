@@ -21,8 +21,11 @@ A compliance scan was performed using Tenable Nessus with the following configur
 **Scan Configuration** 
 
 **Target:**           	Windows VM Private IP
+
 **Authentication:**   	Windows credentialed scan
+
 **Compliance Policy:**	DISA Microsoft Windows 11 STIG v2r6
+
 **Enabled Checks:**   	Windows Compliance Checks
 
 The initial scan identified a failed compliance check for WN11-AU-000050.
