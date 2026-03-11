@@ -6,12 +6,12 @@
 ### Category: Audit
 ### Severity: Medium (CAT II)
 
-### Requirement
+### Requirement:
 
 The system must be configured to audit Process Creation events under Detailed Tracking for Success. This ensures successful process executions are logged in the Windows Security Event Log and allows administrators to track executed processes for security monitoring and forensic analysis.
 
 
-Step 1: Baseline Scan of VM
+### Step 1: Baseline Scan of VM**
 
 A Windows 11 virtual machine was provisioned in Microsoft Azure for testing and remediation validation.
 
@@ -19,12 +19,12 @@ To ensure the internal vulnerability scanner could connect without network filte
 
 A compliance scan was then performed using Tenable Nessus with the following configuration.
 
-Scan Configuration 
+**Scan Configuration** 
 
-Target:           	Windows VM Private IP
-Authentication:   	Windows credentialed scan
-Compliance Policy:	DISA Microsoft Windows 11 STIG v2r6
-Enabled Checks:   	Windows Compliance Checks
+**Target:**           	Windows VM Private IP
+**Authentication:**   	Windows credentialed scan
+**Compliance Policy:**	DISA Microsoft Windows 11 STIG v2r6
+**Enabled Checks:**   	Windows Compliance Checks
 
 The initial scan identified a failed compliance check for WN11-AU-000050.
 
