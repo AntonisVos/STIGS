@@ -121,7 +121,7 @@ This framework uses broad categories such as:
 **If the system is not explicitly configured to prioritize Advanced Audit Policy, legacy audit policies can override advanced settings.**
 
 
-**Script Function**
+### Script Function
 
 The PowerShell remediation script performs the following actions:
 
