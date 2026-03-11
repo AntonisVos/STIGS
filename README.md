@@ -121,17 +121,15 @@ This framework uses broad categories such as:
 
 **If the system is not explicitly configured to prioritize Advanced Audit Policy, legacy audit policies can override advanced settings.**
 
-## Script Function
+
+**Script Function**
 
 The PowerShell remediation script performs the following actions:
 
-Forces Advanced Audit Policy to override legacy audit settings.
-
-Executes an immediate Group Policy update.
-
-Enables Process Creation auditing (Success).
-
-Verifies the configuration using auditpol.
+- Forces Advanced Audit Policy to override legacy audit settings.
+- Executes an immediate Group Policy update.
+- Enables Process Creation auditing (Success).
+- Verifies the configuration using auditpol.
 
 Outputs a PASS/FAIL validation result.
 
