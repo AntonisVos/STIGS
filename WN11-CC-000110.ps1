@@ -10,7 +10,6 @@ configuration and ensure the system complies with the STIG requirement.
 
 
 
-
 .NOTES
     Author          : Antonis Vosmandros
     LinkedIn        : linkedin.com/in/antonisvos
