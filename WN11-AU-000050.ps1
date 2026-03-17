@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-Remediates STIG control WN11-AU-000050 by enabling auditing for Process Creation (Success) on Windows 11. 
+Remediates STIG control WN11-AU-000050 by enabling auditing for Process Creation (Success). 
 It first enforces advanced audit policies to override legacy audit settings, then configures the system 
 to log successful process creation events. The script forces a Group Policy update to apply the changes 
 immediately and verifies the setting using auditpol.
