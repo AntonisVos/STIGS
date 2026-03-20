@@ -33,13 +33,53 @@
 
 #>
 
+# Set execution policy to allow script to run for this session only
 Set-ExecutionPolicy RemoteSigned -Scope Process -Force
-$regPath = "HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Printers" $valueName = "DisableWebPnPDownload" $valueData = 1 $allPassed = $true
+
+# Define the registry path, value name, required value, and pass/fail tracker
+$regPath   = "HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Printers"
+$valueName = "DisableWebPnPDownload"
+$valueData = 1
+$allPassed = $true
+
+# Begin remediation
 Write-Host "`n=== REMEDIATION ===" -ForegroundColor Yellow
-if (-not (Test-Path $regPath)) { New-Item -Path $regPath -Force | Out-Null }
-New-ItemProperty -Path $regPath -Name $valueName -Value $valueData -PropertyType DWord -Force | Out-Null Write-Host "[Printers] DisableWebPnPDownload set to $valueData" -ForegroundColor Cyan
+
+# Create the registry key if it does not exist
+if (-not (Test-Path $regPath)) {
+    New-Item -Path $regPath -Force | Out-Null
+}
+
+# Write the required registry value
+New-ItemProperty -Path $regPath -Name $valueName -Value $valueData -PropertyType DWord -Force | Out-Null
+Write-Host "[Printers] DisableWebPnPDownload set to $valueData" -ForegroundColor Cyan
+
+# Begin verification
 Write-Host "`n=== VERIFICATION ===" -ForegroundColor Yellow
-regVal = (Get-ItemProperty -Path $regPath -Name $valueName -ErrorAction SilentlyContinue). valueName
+
+# Read the registry value back and confirm it matches the requirement
+$regVal = (Get-ItemProperty -Path $regPath -Name $valueName -ErrorAction SilentlyContinue).$valueName
+
+if ($null -eq $regVal) {
+    Write-Host "  [FAIL] DisableWebPnPDownload value not found" -ForegroundColor Red
+    $allPassed = $false
+} elseif ($regVal -ne $valueData) {
+    Write-Host "  [FAIL] DisableWebPnPDownload is $regVal (expected $valueData)" -ForegroundColor Red
+    $allPassed = $false
+} else {
+    Write-Host "  [PASS] DisableWebPnPDownload is $regVal (expected $valueData)" -ForegroundColor Green
+}
+
+# Report overall pass or fail status
+Write-Host "`n=== SUMMARY ===" -ForegroundColor Yellow
+
+if ($allPassed) {
+    Write-Host "  STATUS: PASS - Print driver HTTP download policy meets the requirement." -ForegroundColor Green
+    Write-Host "  Run Nessus scan to confirm." -ForegroundColor Green
+} else {
+    Write-Host "  STATUS: FAIL - Print driver HTTP download policy did not meet the requirement." -ForegroundColor Red
+    Write-Host "  Review the details above before rescanning." -ForegroundColor Red
+}
 if ($null -eq $regVal) { Write-Host " [FAIL] DisableWebPnPDownload value not found" -ForegroundColor Red $allPassed = $false } elseif ($regVal -ne $valueData) { Write-Host " [FAIL] DisableWebPnPDownload is $regVal (expected $valueData)" -ForegroundColor Red $allPassed = $false } else { Write-Host " [PASS] DisableWebPnPDownload is $regVal (expected $valueData)" -ForegroundColor Green }
 Write-Host "`n=== SUMMARY ===" -ForegroundColor Yellow
 if ($allPassed) { Write-Host " STATUS: PASS - Print driver HTTP download policy meets the requirement." -ForegroundColor Green Write-Host " Run Nessus scan to confirm." -ForegroundColor Green } else { Write-Host " STATUS: FAIL - Print driver HTTP download policy did not meet the requirement." -ForegroundColor Red Write-Host " Review the details above before rescanning." -ForegroundColor Red }
